@@ -1,0 +1,18 @@
+<?php
+
+// main.php
+
+include("autoload.php");
+
+$shippMgr = new Shippment();
+$taxMgr = new Tax();
+
+$saleMgr = new SalesManager();
+$saleMgr->attach($shippMgr);
+$saleMgr->attach($taxMgr);
+
+$sale = new Sale();
+
+$saleMgr->setSale($sale);
+
+?>
