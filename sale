@@ -1,0 +1,60 @@
+<?php
+
+// Sale.php
+
+class Sale
+{
+    private $items = array();
+    private $customer = array();
+    private $date;
+
+    public function __construct()
+    {
+        $this->setCustomer();
+        $this->date = date("Y-m-d H:i:s");
+        $this->setItems();
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    protected function setItems()
+    {
+        while(true)
+        {
+            $name = readline("Proizvod: ");
+            $price = readline("Cijena: ");
+
+            $this->items[] = array("name" => $name, "price" => $price);
+
+            $check = readline("Da li zelite unijeti jos proizvoda (d/n): ");
+
+            if($check == "n" || $check == "N")
+            {
+                break;
+            }
+        }
+    }
+
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    protected function setCustomer()
+    {
+        $this->customer["name"] = readline("Naziv kupca: ");
+        $this->customer["street"] = readline("Ulica: ");
+        $this->customer["zip"] = readline("Postanski broj: ");
+        $this->customer["city"] = readline("Grad: ");
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+}
+
+?>
