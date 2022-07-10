@@ -1,0 +1,13 @@
+<?php
+
+// Tax.php
+
+class Tax implements SplObserver
+{
+    public function update($subject)
+    {
+        echo "Obracun poreza\n";
+    }
+}
+
+?>
