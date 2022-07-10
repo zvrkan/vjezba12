@@ -1,0 +1,20 @@
+<?php
+
+// Shippment.php
+
+class Shippment implements SplObserver
+{
+    public function update($subject)
+    {
+        $sales = $subject->getSales();
+
+        $this->createLabel();
+    }
+
+    public function createLabel()
+    {
+        echo "Kreirana naljepnica za slanje\n";
+    }
+}
+
+?>
